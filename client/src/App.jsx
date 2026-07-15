@@ -1,12 +1,13 @@
 import "./App.css";
+import Hero from "./components/Hero";
 
 function App() {
   return (
-    <div>
-      <h1>Apply Flow</h1>
-      <p>Track every intership. Manage every opportunity.</p>
-      <button>Get Started</button>
-    </div>
+    <Hero
+      title="ApplyFlow"
+      description="Track every internship. Manage every opportunity."
+      buttonLabel="Get Started"
+    />
   );
 }
 
