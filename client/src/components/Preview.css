@@ -1,0 +1,105 @@
+/* =========================
+   Preview Section
+========================= */
+
+.preview {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 80px;
+
+  padding: 120px 8%;
+}
+
+/* =========================
+   Left
+========================= */
+
+.preview-left {
+  flex: 1;
+}
+
+.preview-image {
+  width: 100%;
+
+  border-radius: 22px;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   Right
+========================= */
+
+.preview-right {
+  flex: 1;
+}
+
+.preview-tag {
+  color: #a8553a;
+
+  font-weight: 600;
+
+  margin-bottom: 18px;
+}
+
+.preview-title {
+  font-size: 52px;
+
+  color: #2f2f2f;
+
+  line-height: 1.2;
+
+  margin-bottom: 25px;
+}
+
+.preview-description {
+  color: #666;
+
+  font-size: 19px;
+
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+}
+
+.preview-list {
+  list-style: none;
+}
+
+.preview-list li {
+  margin-bottom: 18px;
+
+  color: #444;
+
+  font-size: 17px;
+
+  font-weight: 500;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 900px) {
+  .preview {
+    flex-direction: column;
+  }
+
+  .preview-title {
+    text-align: center;
+
+    font-size: 40px;
+  }
+
+  .preview-description {
+    text-align: center;
+  }
+
+  .preview-tag {
+    text-align: center;
+  }
+}

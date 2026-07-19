@@ -1,0 +1,123 @@
+/* =========================
+   CTA Section
+========================= */
+
+.cta {
+  padding: 120px 8%;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+/* =========================
+   CTA Card
+========================= */
+
+.cta-card {
+  width: 100%;
+
+  max-width: 1100px;
+
+  padding: 80px 60px;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background: linear-gradient(135deg, #a8553a, #c46d52);
+
+  color: white;
+
+  box-shadow: 0 30px 60px rgba(168, 85, 58, 0.25);
+}
+
+/* =========================
+   Tag
+========================= */
+
+.cta-tag {
+  font-size: 16px;
+
+  font-weight: 600;
+
+  opacity: 0.9;
+
+  margin-bottom: 18px;
+}
+
+/* =========================
+   Title
+========================= */
+
+.cta-title {
+  font-size: 52px;
+
+  line-height: 1.2;
+
+  margin-bottom: 28px;
+}
+
+/* =========================
+   Description
+========================= */
+
+.cta-description {
+  font-size: 20px;
+
+  line-height: 1.8;
+
+  opacity: 0.95;
+
+  max-width: 700px;
+
+  margin: auto auto 40px;
+}
+
+/* =========================
+   Button
+========================= */
+
+.cta-button {
+  padding: 18px 42px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: white;
+
+  color: #a8553a;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.25);
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+  .cta-card {
+    padding: 60px 30px;
+  }
+
+  .cta-title {
+    font-size: 38px;
+  }
+
+  .cta-description {
+    font-size: 18px;
+  }
+}

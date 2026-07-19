@@ -1,0 +1,46 @@
+.feature-card {
+  background: rgba(255, 255, 255, 0.55);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-radius: 22px;
+
+  padding: 35px;
+
+  text-align: left;
+
+  transition: 0.35s;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 20px 45px rgba(168, 85, 58, 0.18);
+}
+
+.feature-icon {
+  font-size: 42px;
+
+  margin-bottom: 22px;
+}
+
+.feature-title {
+  color: #2f2f2f;
+
+  font-size: 24px;
+
+  margin-bottom: 15px;
+}
+
+.feature-description {
+  color: #666;
+
+  line-height: 1.8;
+
+  font-size: 16px;
+}

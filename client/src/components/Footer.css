@@ -1,0 +1,129 @@
+/* =========================
+   Footer
+========================= */
+
+.footer {
+  background: #f5ece5;
+
+  margin-top: 100px;
+
+  padding-top: 70px;
+}
+
+/* =========================
+   Container
+========================= */
+
+.footer-container {
+  width: 90%;
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 80px;
+
+  padding-bottom: 50px;
+}
+
+/* =========================
+   Brand
+========================= */
+
+.footer-brand {
+  flex: 2;
+}
+
+.footer-brand h2 {
+  color: #a8553a;
+
+  font-size: 32px;
+
+  margin-bottom: 20px;
+}
+
+.footer-brand p {
+  color: #666;
+
+  line-height: 1.8;
+
+  max-width: 420px;
+}
+
+/* =========================
+   Links
+========================= */
+
+.footer-links,
+.footer-tech {
+  flex: 1;
+}
+
+.footer-links h3,
+.footer-tech h3 {
+  color: #2f2f2f;
+
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  display: block;
+
+  margin-bottom: 14px;
+
+  text-decoration: none;
+
+  color: #666;
+
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #a8553a;
+}
+
+/* =========================
+   Tech
+========================= */
+
+.footer-tech p {
+  margin-bottom: 12px;
+
+  color: #666;
+}
+
+/* =========================
+   Bottom
+========================= */
+
+.footer-bottom {
+  border-top: 1px solid rgba(168, 85, 58, 0.15);
+
+  text-align: center;
+
+  padding: 25px;
+
+  color: #777;
+
+  font-size: 15px;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+
+    gap: 50px;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+}

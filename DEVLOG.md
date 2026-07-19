@@ -145,3 +145,47 @@
 - Begin Express.js backend setup.
 
 ---
+
+## Sprint 1 - Day 5 (18 July 2026)
+
+### Completed
+
+- Created the `server` folder for the backend.
+- Initialized the Node.js project using `npm init`.
+- Configured the project to use ES Modules.
+- Installed Express.
+- Created the `server.js` entry file.
+- Imported Express into the project.
+- Created the Express application using `const app = express()`.
+- Started the backend server using `app.listen()`.
+- Learned how ports work and ran the server on port `5000`.
+- Created the first Express route using `app.get()`.
+- Sent the first response using `res.send()`.
+- Successfully tested the backend by accessing `http://localhost:5000`.
+
+### Problems Faced
+
+- Decided between CommonJS and ES Modules before choosing ES Modules.
+- Initially confused about the purpose of `res.render()` and when it should be used.
+- Needed clarification on the roles of `req` and `res`.
+
+### Learned
+
+- Express is a backend framework for Node.js.
+- `express()` creates an Express application instance.
+- `app` is the Express application object used to configure the backend.
+- `app.listen()` starts the server and listens for incoming requests.
+- A port is a communication endpoint through which applications exchange data.
+- `app.get()` creates a route that handles GET requests.
+- `req` represents the incoming request from the client.
+- `res` is used to send a response back to the client.
+- `res.send()` sends plain text or HTML to the client.
+- Browsers send a GET request when a URL is opened.
+
+### Next Goal
+
+- Connect React frontend with the Express backend.
+- Learn `useEffect()` and `fetch()`.
+- Configure CORS for frontend-backend communication.
+- Display backend data on the Hero page.
+- Understand `res.json()` and JSON responses.

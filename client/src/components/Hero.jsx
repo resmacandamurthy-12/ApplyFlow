@@ -1,17 +1,49 @@
 import "./Hero.css";
-//import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-function Hero(props) {
+import heroImage from "../assets/hero.png";
+
+function Hero() {
   const navigate = useNavigate();
 
   return (
-    <main className="hero">
-      <h1 className="hero-title">{props.title}</h1>
-      <p className="hero-description">{props.description}</p>
-      <button onClick={() => navigate("/login")} className="hero-button">
-        {props.buttonLabel}
-      </button>
-    </main>
+    <section id="home" className="hero">
+      <div className="hero-content">
+        <div className="hero-left">
+          <p className="hero-tag">Internship Tracking Made Simple</p>
+
+          <h1 className="hero-title">
+            Track Every Internship
+            <br />
+            In One Place
+          </h1>
+
+          <p className="hero-description">
+            Organize applications, monitor interview stages, save wishlist
+            companies and never miss an important deadline again.
+          </p>
+
+          <div className="hero-points">
+            <span>✔ Organize Applications</span>
+
+            <span>✔ Track Interview Progress</span>
+
+            <span>✔ Export Application Data</span>
+          </div>
+
+          <button className="hero-button" onClick={() => navigate("/login")}>
+            Get Started
+          </button>
+        </div>
+
+        <div className="hero-right">
+          <img
+            src={heroImage}
+            alt="ApplyFlow Dashboard"
+            className="hero-image"
+          />
+        </div>
+      </div>
+    </section>
   );
 }
 
