@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="background: transparent;">
+  <!--
+    ApplyFlow Premium Minimalist Icon
+    Color: #A8553A
+    Concept: Abstract rounded document geometric silhouette seamlessly transitioning into a central checkmark.
+  -->
+  <g fill="none" stroke="#A8553A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    
+    <!-- 
+      The modern geometric document outer frame.
+      Features a distinct asymmetric top-right rounded corner simulating a minimalist page fold, 
+      while remaining open on the inner-left to transition directly into the workflow checkmark.
+    -->
+    <path d="M 36 16 
+             L 66 16 
+             A 10 10 0 0 1 76 26 
+             L 76 74 
+             A 10 10 0 0 1 66 84 
+             L 34 84 
+             A 10 10 0 0 1 24 74 
+             L 24 46" />
+
+    <!-- 
+      The beautifully integrated central checkmark (✓).
+      Positioned perfectly in balance within the negative space of the document matrix,
+      symbolizing application flow, progression, and organizational success.
+    -->
+    <path d="M 36 50 
+             L 46 60 
+             L 66 36" />
+             
+  </g>
+</svg>

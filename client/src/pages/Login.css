@@ -1,9 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
 :root {
   --primary: #a8553a;
-  --primary-hover: #92400e;
-  --primary-shadow: rgba(168, 85, 58, 0.25);
+  --primary-dark: #8e432c;
+  --bg: #faf8f5;
+  --bg-secondary: #f5ece5;
+  --border: #e8d8cd;
+  --text: #2d2d2d;
+  --text-light: #666666;
+  --white: #ffffff;
 }
 
 * {
@@ -14,152 +17,719 @@
 }
 
 body {
-  background: linear-gradient(135deg, #faf8f5 0%, #f5ece5 50%, #f9f6f2 100%);
+  background: var(--bg);
 }
 
-/* =========================
-   Main Container
-========================= */
-
-.login-container {
+.auth-page {
   min-height: 100vh;
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
-  position: relative;
+
+  background: linear-gradient(135deg, #faf8f5, #f5ece5);
+
+  padding: 20px;
+
   overflow: hidden;
 }
 
-/* =========================
-   Background Blobs
-========================= */
+.auth-container {
+  width: min(1200px, 95vw);
 
-.login-container::before {
-  content: "";
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  background: #e6c5b5;
-  border-radius: 50%;
-  top: -120px;
-  left: -120px;
-  filter: blur(120px);
-  opacity: 0.55;
-}
+  height: min(760px, 92vh);
 
-.login-container::after {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: #ddb5a1;
-  border-radius: 50%;
-  bottom: -100px;
-  right: -100px;
-  filter: blur(120px);
-  opacity: 0.45;
-}
-
-/* =========================
-   Glass Card
-========================= */
-
-.login-card {
-  width: 420px;
-  padding: 40px;
   background: rgba(255, 255, 255, 0.45);
+
   backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-  position: relative;
-  z-index: 10;
-}
 
-/* =========================
-   Title
-========================= */
+  border-radius: 32px;
 
-.login-title {
-  text-align: center;
-  color: #2f2f2f;
-  margin-bottom: 35px;
-  font-size: 32px;
-  font-weight: 700;
-}
+  overflow: hidden;
 
-/* =========================
-   Input Group
-========================= */
-
-.login-group {
   display: flex;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================
+      LEFT PANEL
+========================== */
+
+.auth-panel {
+  flex: 0.45;
+
+  background: var(--primary);
+
+  color: white;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.panel-content {
+  position: relative;
+
+  z-index: 10;
+
+  height: 100%;
+
+  display: flex;
+
   flex-direction: column;
-  margin-bottom: 22px;
+
+  padding: 65px 55px;
 }
 
-.login-group label {
-  margin-bottom: 8px;
-  color: #555;
-  font-size: 14px;
-  font-weight: 500;
+.panel-logo {
+  font-size: 2.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: -1px;
+
+  margin-bottom: 60px;
 }
 
-.login-group input {
-  padding: 14px 16px;
+.panel-content h1 {
+  font-size: 3.8rem;
+
+  line-height: 1.05;
+
+  font-weight: 700;
+
+  margin-bottom: 24px;
+}
+
+.panel-content p {
+  font-size: 1.1rem;
+
+  line-height: 1.8;
+
+  opacity: 0.95;
+
+  max-width: 360px;
+}
+
+/* ==========================
+      SWITCH
+========================== */
+
+.auth-switch {
+  margin-top: auto;
+
+  display: flex;
+
+  gap: 15px;
+}
+
+.auth-switch button {
+  flex: 1;
+
+  height: 54px;
+
+  border: none;
+
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.6);
-  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  cursor: pointer;
+
   font-size: 15px;
+
+  font-weight: 500;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  transition: 0.35s;
+}
+
+.auth-switch button:hover {
+  transform: translateY(-2px);
+}
+
+.auth-switch button.active {
+  background: white;
+
+  color: var(--primary);
+
+  font-weight: 600;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================
+        BLOBS
+========================== */
+
+.blob {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.blob1 {
+  width: 260px;
+
+  height: 260px;
+
+  top: -90px;
+
+  right: -80px;
+}
+
+.blob2 {
+  width: 180px;
+
+  height: 180px;
+
+  bottom: 80px;
+
+  left: -60px;
+}
+
+.blob3 {
+  width: 100px;
+
+  height: 100px;
+
+  bottom: 40px;
+
+  right: 40px;
+}
+
+/* ==========================
+      RIGHT PANEL
+========================== */
+
+.auth-form-wrapper {
+  flex: 0.55;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 40px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* ==========================
+      GLASS CARD
+========================== */
+
+.glass-card {
+  width: 100%;
+
+  max-width: 520px;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  backdrop-filter: blur(20px);
+
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  border-radius: 28px;
+
+  padding: 42px;
+
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.55s ease,
+    opacity 0.45s ease,
+    box-shadow 0.35s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================
+      LOGIN / SIGNUP
+========================== */
+
+.login-form,
+.signup-form {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  animation: fadeIn 0.45s ease;
+}
+
+.login-form h2,
+.signup-form h2 {
+  font-size: 2.3rem;
+
+  font-weight: 700;
+
+  color: var(--text);
+
+  margin-bottom: 8px;
+}
+
+.login-form p,
+.signup-form p {
+  color: var(--text-light);
+
+  margin-bottom: 28px;
+
+  line-height: 1.6;
+}
+
+/* ==========================
+      INPUTS
+========================== */
+
+.input-box {
+  display: flex;
+
+  align-items: center;
+
+  height: 56px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  background: white;
+
+  padding: 0 18px;
+
+  margin-bottom: 18px;
+
   transition: 0.3s;
 }
 
-.login-group input::placeholder {
+.input-box:focus-within {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 4px rgba(168, 85, 58, 0.12);
+}
+
+.input-icon {
+  color: var(--primary);
+
+  font-size: 18px;
+
+  margin-right: 12px;
+}
+
+.input-box input {
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 15px;
+
+  color: var(--text);
+}
+
+.input-box input::placeholder {
   color: #999;
 }
 
-.login-group input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 4px var(--primary-shadow);
-}
-
-/* =========================
-   Login Button
-========================= */
-
-.login-button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 15px;
+.eye-btn {
   border: none;
-  border-radius: 14px;
-  background: var(--primary);
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
+
+  background: none;
+
   cursor: pointer;
-  transition: 0.3s ease;
+
+  color: #777;
+
+  font-size: 18px;
 }
 
-.login-button:hover {
-  background: var(--primary-hover);
+/* ==========================
+      FORGOT PASSWORD
+========================== */
+
+.forgot-password {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-bottom: 22px;
+}
+
+.forgot-password a {
+  color: var(--primary);
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition: 0.3s;
+}
+
+.forgot-password a:hover {
+  color: var(--primary-dark);
+}
+
+/* ==========================
+      BUTTONS
+========================== */
+
+.login-btn,
+.signup-btn {
+  height: 56px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.35s;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+  background: var(--primary-dark);
+
   transform: translateY(-2px);
-  box-shadow: 0 12px 25px var(--primary-shadow);
+
+  box-shadow: 0 12px 24px rgba(168, 85, 58, 0.25);
 }
 
-/* =========================
-   Responsive
-========================= */
+/* ==========================
+      DIVIDER
+========================== */
 
-@media (max-width: 500px) {
-  .login-card {
-    width: 90%;
-    padding: 30px;
+.divider {
+  display: flex;
+
+  align-items: center;
+
+  margin: 24px 0;
+
+  color: #999;
+
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background: var(--border);
+}
+
+.divider span {
+  padding: 0 16px;
+}
+
+/* ==========================
+      GOOGLE BUTTON
+========================== */
+
+.google-btn {
+  width: 100%;
+
+  height: 56px;
+
+  border-radius: 14px;
+
+  border: 1px solid var(--border);
+
+  background: white;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 12px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  transition: 0.3s;
+}
+
+.google-btn:hover {
+  background: var(--bg-secondary);
+
+  transform: translateY(-2px);
+}
+
+.google-icon {
+  font-size: 22px;
+}
+
+/* ==========================
+      BOTTOM TEXT
+========================== */
+
+.bottom-text {
+  text-align: center;
+
+  margin-top: 22px;
+
+  color: #666;
+
+  font-size: 14px;
+}
+
+.bottom-text span {
+  color: var(--primary);
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.bottom-text span:hover {
+  text-decoration: underline;
+}
+
+/* ==========================
+        ANIMATIONS
+========================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
   }
 
-  .login-title {
-    font-size: 28px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatBlob {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.blob1 {
+  animation: floatBlob 9s ease-in-out infinite;
+}
+
+.blob2 {
+  animation: floatBlob 7s ease-in-out infinite;
+}
+
+.blob3 {
+  animation: floatBlob 11s ease-in-out infinite;
+}
+
+/* ==========================
+      PANEL TRANSITIONS
+========================== */
+
+.auth-panel,
+.auth-form-wrapper {
+  transition:
+    transform 0.6s ease,
+    opacity 0.45s ease;
+}
+
+.glass-card {
+  animation: fadeIn 0.45s ease;
+}
+
+/* ==========================
+      SIGNUP MODE
+========================== */
+
+.signup-mode .glass-card {
+  animation: fadeIn 0.45s ease;
+}
+
+/* ==========================
+      SCROLLBAR
+========================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4b5a8;
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ==========================
+      RESPONSIVE
+========================== */
+
+@media (max-width: 1000px) {
+  .auth-container {
+    width: 95%;
+
+    height: auto;
+
+    min-height: 700px;
+  }
+
+  .panel-content {
+    padding: 55px 40px;
+  }
+
+  .panel-content h1 {
+    font-size: 3rem;
+  }
+
+  .glass-card {
+    padding: 35px;
+  }
+}
+
+@media (max-width: 850px) {
+  .auth-container {
+    flex-direction: column;
+
+    height: auto;
+  }
+
+  .auth-panel {
+    min-height: 340px;
+
+    flex: none;
+  }
+
+  .auth-form-wrapper {
+    flex: none;
+
+    padding: 28px;
+  }
+
+  .panel-logo {
+    font-size: 2.3rem;
+
+    margin-bottom: 30px;
+  }
+
+  .panel-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .panel-content p {
+    max-width: 100%;
+
+    font-size: 1rem;
+  }
+
+  .auth-switch {
+    margin-top: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-page {
+    padding: 12px;
+  }
+
+  .auth-container {
+    border-radius: 22px;
+  }
+
+  .glass-card {
+    padding: 26px;
+
+    border-radius: 20px;
+  }
+
+  .panel-content {
+    padding: 35px 25px;
+  }
+
+  .panel-logo {
+    font-size: 2rem;
+  }
+
+  .panel-content h1 {
+    font-size: 2rem;
+  }
+
+  .login-form h2,
+  .signup-form h2 {
+    font-size: 1.9rem;
+  }
+
+  .input-box {
+    height: 52px;
+
+    margin-bottom: 15px;
+  }
+
+  .login-btn,
+  .signup-btn,
+  .google-btn {
+    height: 52px;
+  }
+}
+
+@media (max-width: 420px) {
+  .panel-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .panel-content p {
+    font-size: 0.95rem;
+  }
+
+  .glass-card {
+    padding: 20px;
+  }
+
+  .login-form h2,
+  .signup-form h2 {
+    font-size: 1.7rem;
   }
 }

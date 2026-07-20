@@ -1,5 +1,5 @@
 import "./About.css";
-import aboutImage from "../assets/about-illustration.png";
+//import aboutImage from "../assets/about-illustration.png";
 
 function About() {
   return (
@@ -34,9 +34,7 @@ function About() {
         </div>
       </div>
 
-      <div className="about-right">
-        <img src={aboutImage} alt="About ApplyFlow" className="about-image" />
-      </div>
+      <div className="about-right">About Image</div>
     </section>
   );
 }

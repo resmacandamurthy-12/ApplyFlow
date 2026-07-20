@@ -1,6 +1,6 @@
 import "./Hero.css";
 import { useNavigate } from "react-router-dom";
-import heroImage from "../assets/hero.png";
+//import heroImage from "../assets/hero.png";
 
 function Hero() {
   const navigate = useNavigate();
@@ -35,13 +35,7 @@ function Hero() {
           </button>
         </div>
 
-        <div className="hero-right">
-          <img
-            src={heroImage}
-            alt="ApplyFlow Dashboard"
-            className="hero-image"
-          />
-        </div>
+        <div className="hero-right">Hero Image</div>
       </div>
     </section>
   );

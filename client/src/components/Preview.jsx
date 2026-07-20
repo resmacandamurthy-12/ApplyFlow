@@ -1,16 +1,10 @@
 import "./Preview.css";
-import dashboardPreview from "../assets/dashboard-preview.png";
+//import dashboardPreview from "../assets/dashboard-preview.png";
 
 function Preview() {
   return (
     <section className="preview">
-      <div className="preview-left">
-        <img
-          src={dashboardPreview}
-          alt="ApplyFlow Dashboard Preview"
-          className="preview-image"
-        />
-      </div>
+      <div className="preview-left">Preview Image</div>
 
       <div className="preview-right">
         <p className="preview-tag">Dashboard Preview</p>
