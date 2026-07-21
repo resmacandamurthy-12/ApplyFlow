@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 
 import { FiUser, FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 
-function SignupForm() {
+function SignupForm({ onSwitch }) {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -118,7 +118,9 @@ function SignupForm() {
 
       <div className="bottom-text">
         Already have an account?
-        <span> Login</span>
+        <button type="button" className="text-link" onClick={onSwitch}>
+          Login
+        </button>
       </div>
     </form>
   );

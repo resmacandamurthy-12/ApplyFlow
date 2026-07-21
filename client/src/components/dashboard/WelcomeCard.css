@@ -1,0 +1,181 @@
+.welcome-card {
+  width: 100%;
+
+  min-height: 280px;
+
+  border-radius: 30px;
+
+  background: linear-gradient(135deg, #a8553a 0%, #bb6b4d 100%);
+
+  overflow: hidden;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 50px;
+
+  margin-bottom: 35px;
+
+  box-shadow: 0 20px 40px rgba(168, 85, 58, 0.22);
+}
+
+/* Left */
+
+.welcome-content {
+  position: relative;
+
+  z-index: 5;
+
+  max-width: 560px;
+}
+
+.welcome-content h1 {
+  font-size: 48px;
+
+  color: white;
+
+  line-height: 1.1;
+
+  margin-bottom: 20px;
+}
+
+.welcome-content h1 span {
+  color: #ffe9dd;
+}
+
+.welcome-content p {
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+}
+
+.welcome-btn {
+  border: none;
+
+  outline: none;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 16px 28px;
+
+  border-radius: 16px;
+
+  background: white;
+
+  color: #a8553a;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.welcome-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Decorative */
+
+.welcome-decoration {
+  position: absolute;
+
+  right: 0;
+
+  top: 0;
+
+  width: 420px;
+
+  height: 100%;
+}
+
+.shape {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.shape1 {
+  width: 260px;
+
+  height: 260px;
+
+  right: -70px;
+
+  top: -60px;
+}
+
+.shape2 {
+  width: 180px;
+
+  height: 180px;
+
+  right: 120px;
+
+  bottom: -40px;
+}
+
+.shape3 {
+  width: 110px;
+
+  height: 110px;
+
+  right: 40px;
+
+  top: 90px;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+  .welcome-card {
+    padding: 35px;
+  }
+
+  .welcome-content h1 {
+    font-size: 38px;
+  }
+
+  .welcome-decoration {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .welcome-card {
+    padding: 25px;
+
+    min-height: auto;
+  }
+
+  .welcome-content h1 {
+    font-size: 30px;
+  }
+
+  .welcome-content p {
+    font-size: 15px;
+  }
+
+  .welcome-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 
-function LoginForm() {
+function LoginForm({ onSwitch }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -70,7 +70,9 @@ function LoginForm() {
 
       <div className="bottom-text">
         Don't have an account?
-        <span> Sign Up</span>
+        <button type="button" className="text-link" onClick={onSwitch}>
+          Sign Up
+        </button>
       </div>
     </form>
   );

@@ -66,7 +66,11 @@ function Login() {
 
         <section className="auth-form-wrapper">
           <div className="glass-card">
-            {isLogin ? <LoginForm /> : <SignupForm />}
+            {isLogin ? (
+              <LoginForm onSwitch={() => setIsLogin(false)} />
+            ) : (
+              <SignupForm onSwitch={() => setIsLogin(true)} />
+            )}
           </div>
         </section>
       </div>

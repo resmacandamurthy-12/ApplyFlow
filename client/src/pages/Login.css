@@ -715,21 +715,134 @@ body {
   }
 }
 
+.text-link {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 4px;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 420px) {
+  .auth-page {
+    padding: 10px;
+  }
+
+  .auth-container {
+    width: 100%;
+    min-height: auto;
+    border-radius: 20px;
+  }
+
+  /* Left Panel */
+
+  .auth-panel {
+    min-height: 280px;
+  }
+
+  .panel-content {
+    padding: 30px 20px;
+  }
+
+  .panel-logo {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
   .panel-content h1 {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
   }
 
   .panel-content p {
     font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .auth-switch {
+    margin-top: 25px;
+    gap: 12px;
+  }
+
+  .auth-switch button {
+    height: 46px;
+    font-size: 14px;
+  }
+
+  /* Right Panel */
+
+  .auth-form-wrapper {
+    padding: 15px;
   }
 
   .glass-card {
-    padding: 20px;
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  /* Forms */
+
+  .login-form,
+  .signup-form {
+    max-width: 100%;
   }
 
   .login-form h2,
   .signup-form h2 {
     font-size: 1.7rem;
+  }
+
+  .login-form p,
+  .signup-form p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .input-box {
+    height: 50px;
+    margin-bottom: 14px;
+  }
+
+  .input-box input {
+    font-size: 14px;
+  }
+
+  .input-icon {
+    font-size: 18px;
+  }
+
+  .eye-btn {
+    font-size: 18px;
+  }
+
+  .login-btn,
+  .signup-btn,
+  .google-btn {
+    height: 50px;
+    font-size: 14px;
+  }
+
+  .divider {
+    margin: 20px 0;
+  }
+
+  .bottom-text {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .blob1,
+  .blob2,
+  .blob3 {
+    opacity: 0.25;
+    transform: scale(0.75);
   }
 }

@@ -1,0 +1,188 @@
+.deadline-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= HEADER ================= */
+
+.deadline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 28px;
+}
+
+.deadline-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #232323;
+  margin-bottom: 6px;
+}
+
+.deadline-header p {
+  color: #8b8b8b;
+  font-size: 15px;
+}
+
+.calendar-icon {
+  font-size: 24px;
+  color: #a8553a;
+  margin-top: 6px;
+}
+
+/* ================= LIST ================= */
+
+.deadline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  flex: 1;
+}
+
+/* ================= ITEM ================= */
+
+.deadline-item {
+  background: #faf8f5;
+
+  border-radius: 20px;
+
+  padding: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: 0.3s;
+}
+
+.deadline-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ================= LEFT ================= */
+
+.deadline-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.deadline-logo {
+  width: 48px;
+  height: 48px;
+
+  background: #a8553a;
+
+  color: white;
+
+  border-radius: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  flex-shrink: 0;
+}
+
+.deadline-info h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+
+  color: #232323;
+
+  margin-bottom: 5px;
+}
+
+.deadline-info p {
+  color: #7d7d7d;
+  font-size: 15px;
+}
+
+/* ================= RIGHT ================= */
+
+.deadline-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.deadline-badge {
+  background: #f5ece5;
+  color: #a8553a;
+
+  padding: 8px 18px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.deadline-date {
+  color: #888;
+  font-size: 14px;
+}
+
+/* ================= FOOTER ================= */
+
+.deadline-footer {
+  margin-top: 25px;
+}
+
+.deadline-btn {
+  width: 100%;
+  height: 50px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #a8553a;
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.deadline-btn:hover {
+  background: #92400e;
+  transform: translateY(-2px);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+  .deadline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .deadline-right {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .deadline-header h2 {
+    font-size: 1.7rem;
+  }
+}

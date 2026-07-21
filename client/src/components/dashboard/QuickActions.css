@@ -1,0 +1,111 @@
+.quick-actions-card {
+  background: white;
+
+  border-radius: 26px;
+
+  padding: 30px;
+
+  margin-top: 30px;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.quick-actions-card h2 {
+  color: #2f2f2f;
+
+  margin-bottom: 8px;
+
+  font-size: 24px;
+}
+
+.quick-actions-card p {
+  color: #888;
+
+  margin-bottom: 28px;
+
+  font-size: 15px;
+}
+
+/* Grid */
+
+.quick-actions-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+/* Button */
+
+.quick-action-btn {
+  border: none;
+
+  background: #faf8f5;
+
+  border-radius: 20px;
+
+  padding: 28px 20px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  transition: 0.3s;
+}
+
+.quick-action-btn:hover {
+  transform: translateY(-5px);
+
+  background: #a8553a;
+
+  color: white;
+
+  box-shadow: 0 15px 30px rgba(168, 85, 58, 0.18);
+}
+
+.quick-action-btn svg {
+  font-size: 34px;
+
+  color: #a8553a;
+
+  transition: 0.3s;
+}
+
+.quick-action-btn:hover svg {
+  color: white;
+}
+
+.quick-action-btn span {
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-action-btn {
+    padding: 22px;
+  }
+}

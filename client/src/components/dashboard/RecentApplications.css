@@ -1,0 +1,233 @@
+.recent-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================
+   Header
+========================== */
+
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 30px;
+}
+
+.recent-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #232323;
+
+  margin-bottom: 8px;
+}
+
+.recent-header p {
+  color: #8d8d8d;
+  font-size: 15px;
+}
+
+.view-all-btn {
+  border: none;
+  background: #f5ece5;
+
+  color: #a8553a;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 18px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.view-all-btn:hover {
+  background: #a8553a;
+  color: white;
+}
+
+/* ==========================
+   List
+========================== */
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ==========================
+   Item
+========================== */
+
+.recent-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 20px;
+
+  border-radius: 20px;
+
+  transition: 0.3s;
+}
+
+.recent-item:hover {
+  background: #faf8f5;
+}
+
+/* ==========================
+   Left
+========================== */
+
+.recent-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.company-avatar {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 16px;
+
+  background: #a8553a;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.recent-left h3 {
+  font-size: 1.6rem;
+  color: #232323;
+
+  margin-bottom: 6px;
+}
+
+.recent-left p {
+  color: #8b8b8b;
+  font-size: 15px;
+}
+
+/* ==========================
+   Right
+========================== */
+
+.recent-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.application-date {
+  color: #8b8b8b;
+  min-width: 60px;
+}
+
+/* ==========================
+   Status
+========================== */
+
+.status {
+  padding: 9px 18px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Interview */
+
+.status.interview {
+  background: #f8eadf;
+  color: #a8553a;
+}
+
+/* Applied */
+
+.status.applied {
+  background: #eef8f0;
+  color: #2f8f57;
+}
+
+/* Wishlist */
+
+.status.wishlist {
+  background: #f5ece5;
+  color: #a8553a;
+}
+
+/* Rejected */
+
+.status.rejected {
+  background: #fdeaea;
+  color: #d94747;
+}
+
+/* ==========================
+   Menu
+========================== */
+
+.menu-btn {
+  border: none;
+  background: transparent;
+
+  color: #888;
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+  transition: 0.3s;
+}
+
+.menu-btn:hover {
+  color: #a8553a;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 900px) {
+  .recent-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .recent-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .recent-header {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .view-all-btn {
+    width: fit-content;
+  }
+}
