@@ -1,92 +1,154 @@
+:root {
+  --bg: #faf8f5;
+
+  --sidebar-width: 270px;
+
+  --sidebar-mini-width: 90px;
+
+  --card-gap: 24px;
+}
+
+/* ========================================= */
+
 .dashboard {
   display: flex;
 
   min-height: 100vh;
 
-  background: #faf8f5;
+  background: var(--bg);
 }
 
-/* ========================= */
+/* ========================================= */
 
 .dashboard-content {
-  margin-left: 280px; /* SAME as sidebar width */
-  flex: 1;
+  margin-left: var(--sidebar-width);
+
+  width: calc(100% - var(--sidebar-width));
+
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+
+  transition: 0.3s ease;
 }
-/* ========================= */
+
+/* ========================================= */
 
 .dashboard-body {
-  flex: 1;
+  width: 100%;
+
+  max-width: 1700px;
+
+  margin: 0 auto;
 
   padding: 30px;
 
   display: flex;
-
   flex-direction: column;
 
-  gap: 30px;
+  gap: var(--card-gap);
 }
 
-/* ========================= */
+/* ========================================= */
+/* Stats */
 
 .stats-grid {
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
 
-  gap: 25px;
+  gap: var(--card-gap);
 }
 
-/* ========================= */
+/* ========================================= */
+/* Recent + Deadline */
 
 .dashboard-grid {
   display: grid;
 
   grid-template-columns: 2fr 1fr;
 
-  gap: 25px;
+  gap: var(--card-gap);
 
   align-items: stretch;
 }
 
-/* ========================= */
-
-.recent-card,
-.deadline-card {
-  height: 100%;
+.dashboard-grid > * {
+  min-width: 0;
 }
 
-/* ========================= */
+/* ========================================= */
 
-@media (max-width: 1200px) {
+.welcome-card,
+.recent-card,
+.deadline-card,
+.quick-actions-card {
+  width: 100%;
+}
+
+/* ====================================================== */
+/* Large Laptop */
+
+@media (max-width: 1400px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* ========================= */
+/* ====================================================== */
+/* Tablet */
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+  .dashboard-content {
+    margin-left: var(--sidebar-mini-width);
+
+    width: calc(100% - var(--sidebar-mini-width));
+  }
+
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ====================================================== */
+/* Mobile */
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    margin-left: 0;
+
+    width: 100%;
+  }
 
   .dashboard-body {
-    padding: 20px;
+    padding: 22px 18px 90px;
+
+    /* bottom padding for bottom navigation */
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* ========================= */
+/* ====================================================== */
+/* Small Mobile */
 
-@media (max-width: 650px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 560px) {
+  .dashboard-body {
+    padding: 16px 16px 90px;
+
+    gap: 18px;
   }
 
-  .dashboard-body {
-    padding: 15px;
-    gap: 20px;
+  .stats-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .dashboard-grid {
+    gap: 18px;
   }
 }

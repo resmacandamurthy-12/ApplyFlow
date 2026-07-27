@@ -1,233 +1,281 @@
+:root {
+  --primary: #a8553a;
+  --background: #faf8f5;
+  --text: #3b3b3b;
+  --text-light: #7a7a7a;
+  --border: #eadfd8;
+}
+
+/* ========================= */
+
 .recent-card {
-  background: #ffffff;
-  border-radius: 28px;
-  padding: 30px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.75);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  border-radius: 24px;
+
+  padding: 28px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
 
   display: flex;
   flex-direction: column;
 }
 
-/* ==========================
-   Header
-========================== */
+/* ========================= */
 
 .recent-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .recent-header h2 {
-  font-size: 2rem;
+  font-size: 22px;
   font-weight: 700;
-  color: #232323;
 
-  margin-bottom: 8px;
+  color: var(--text);
+
+  margin-bottom: 4px;
 }
 
 .recent-header p {
-  color: #8d8d8d;
-  font-size: 15px;
+  color: var(--text-light);
+
+  font-size: 14px;
 }
+
+/* ========================= */
 
 .view-all-btn {
   border: none;
-  background: #f5ece5;
 
-  color: #a8553a;
+  background: var(--background);
+
+  color: var(--primary);
+
+  padding: 11px 18px;
+
+  border-radius: 14px;
 
   display: flex;
   align-items: center;
   gap: 8px;
 
-  padding: 12px 18px;
-
-  border-radius: 14px;
-
   cursor: pointer;
 
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
 
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .view-all-btn:hover {
-  background: #a8553a;
+  background: var(--primary);
+
   color: white;
+
+  transform: translateY(-2px);
 }
 
-/* ==========================
-   List
-========================== */
+/* ========================= */
 
 .recent-list {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+
+  gap: 14px;
 }
 
-/* ==========================
-   Item
-========================== */
+/* ========================= */
 
 .recent-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 18px 20px;
+  padding: 18px;
 
-  border-radius: 20px;
+  border-radius: 18px;
 
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .recent-item:hover {
-  background: #faf8f5;
+  background: var(--background);
 }
 
-/* ==========================
-   Left
-========================== */
+/* ========================= */
 
 .recent-left {
   display: flex;
   align-items: center;
-  gap: 18px;
+
+  gap: 16px;
 }
+
+/* ========================= */
 
 .company-avatar {
   width: 52px;
   height: 52px;
 
-  border-radius: 16px;
+  border-radius: 14px;
 
-  background: #a8553a;
+  background: var(--primary);
+
   color: white;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
 }
 
-.recent-left h3 {
-  font-size: 1.6rem;
-  color: #232323;
+/* ========================= */
 
-  margin-bottom: 6px;
+.recent-left h3 {
+  font-size: 17px;
+
+  font-weight: 600;
+
+  color: var(--text);
+
+  margin-bottom: 4px;
 }
 
 .recent-left p {
-  color: #8b8b8b;
-  font-size: 15px;
+  color: var(--text-light);
+
+  font-size: 14px;
 }
 
-/* ==========================
-   Right
-========================== */
+/* ========================= */
 
 .recent-right {
   display: flex;
   align-items: center;
-  gap: 18px;
+
+  gap: 16px;
 }
 
 .application-date {
-  color: #8b8b8b;
-  min-width: 60px;
+  color: var(--text-light);
+
+  font-size: 14px;
+
+  min-width: 80px;
+
+  text-align: right;
 }
 
-/* ==========================
-   Status
-========================== */
+/* ========================= */
 
 .status {
-  padding: 9px 18px;
+  padding: 8px 16px;
 
   border-radius: 999px;
 
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 }
 
-/* Interview */
-
 .status.interview {
   background: #f8eadf;
-  color: #a8553a;
-}
 
-/* Applied */
+  color: var(--primary);
+}
 
 .status.applied {
   background: #eef8f0;
+
   color: #2f8f57;
 }
 
-/* Wishlist */
-
 .status.wishlist {
   background: #f5ece5;
-  color: #a8553a;
-}
 
-/* Rejected */
+  color: var(--primary);
+}
 
 .status.rejected {
   background: #fdeaea;
+
   color: #d94747;
 }
 
-/* ==========================
-   Menu
-========================== */
+/* ========================= */
 
 .menu-btn {
   border: none;
+
   background: transparent;
 
-  color: #888;
-
-  cursor: pointer;
+  color: var(--text-light);
 
   font-size: 20px;
 
-  transition: 0.3s;
+  cursor: pointer;
+
+  transition: 0.3s ease;
 }
 
 .menu-btn:hover {
-  color: #a8553a;
+  color: var(--primary);
 }
 
-/* ==========================
-   Responsive
-========================== */
+/* ========================= */
+/* Tablet */
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .recent-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 16px;
+  }
+}
+
+/* ========================= */
+/* Mobile */
+
+@media (max-width: 768px) {
   .recent-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 18px;
+
+    gap: 16px;
   }
 
   .recent-right {
     width: 100%;
+
     justify-content: space-between;
   }
 
-  .recent-header {
-    flex-direction: column;
-    gap: 18px;
+  .application-date {
+    text-align: left;
+
+    min-width: auto;
+  }
+}
+
+/* ========================= */
+
+@media (max-width: 500px) {
+  .recent-card {
+    padding: 20px;
   }
 
-  .view-all-btn {
-    width: fit-content;
+  .recent-header h2 {
+    font-size: 20px;
   }
 }

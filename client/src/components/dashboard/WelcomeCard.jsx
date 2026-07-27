@@ -1,15 +1,20 @@
 import "./WelcomeCard.css";
-
 import { FiArrowRight } from "react-icons/fi";
 
 function WelcomeCard() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const name = user?.fullName || "User";
+
+  const firstName = name.split(" ")[0];
+
   return (
     <section className="welcome-card">
       <div className="welcome-content">
         <h1>
           Good Evening,
           <br />
-          <span>Resma</span>
+          <span>{firstName}</span>
         </h1>
 
         <p>

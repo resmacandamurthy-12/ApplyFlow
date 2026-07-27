@@ -1,32 +1,48 @@
-.quick-actions-card {
-  background: white;
-
-  border-radius: 26px;
-
-  padding: 30px;
-
-  margin-top: 30px;
-
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+:root {
+  --primary: #a8553a;
+  --background: #faf8f5;
+  --text: #3b3b3b;
+  --text-light: #7a7a7a;
+  --border: #eadfd8;
 }
 
+/* ========================= */
+
+.quick-actions-card {
+  background: rgba(255, 255, 255, 0.75);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  border-radius: 24px;
+
+  padding: 28px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* ========================= */
+
 .quick-actions-card h2 {
-  color: #2f2f2f;
+  font-size: 22px;
+  font-weight: 700;
 
-  margin-bottom: 8px;
+  color: var(--text);
 
-  font-size: 24px;
+  margin-bottom: 6px;
 }
 
 .quick-actions-card p {
-  color: #888;
+  font-size: 14px;
 
-  margin-bottom: 28px;
+  color: var(--text-light);
 
-  font-size: 15px;
+  margin-bottom: 24px;
 }
 
-/* Grid */
+/* ========================= */
 
 .quick-actions-grid {
   display: grid;
@@ -36,76 +52,87 @@
   gap: 20px;
 }
 
-/* Button */
+/* ========================= */
 
 .quick-action-btn {
-  border: none;
+  background: var(--background);
 
-  background: #faf8f5;
+  border: 1px solid var(--border);
 
-  border-radius: 20px;
+  border-radius: 18px;
 
-  padding: 28px 20px;
+  padding: 24px 20px;
 
   cursor: pointer;
 
   display: flex;
-
   flex-direction: column;
 
   align-items: center;
-
   justify-content: center;
 
-  gap: 15px;
+  gap: 14px;
 
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
-.quick-action-btn:hover {
-  transform: translateY(-5px);
-
-  background: #a8553a;
-
-  color: white;
-
-  box-shadow: 0 15px 30px rgba(168, 85, 58, 0.18);
-}
+/* ========================= */
 
 .quick-action-btn svg {
-  font-size: 34px;
+  font-size: 32px;
 
-  color: #a8553a;
+  color: var(--primary);
 
   transition: 0.3s;
-}
-
-.quick-action-btn:hover svg {
-  color: white;
 }
 
 .quick-action-btn span {
   font-size: 15px;
 
   font-weight: 600;
+
+  color: var(--text);
+
+  transition: 0.3s;
 }
 
-/* Tablet */
+/* ========================= */
 
-@media (max-width: 900px) {
+.quick-action-btn:hover {
+  transform: translateY(-6px);
+
+  background: var(--primary);
+
+  border-color: var(--primary);
+
+  box-shadow: 0 15px 30px rgba(168, 85, 58, 0.18);
+}
+
+.quick-action-btn:hover svg,
+.quick-action-btn:hover span {
+  color: white;
+}
+
+/* ========================= */
+
+@media (max-width: 1100px) {
   .quick-actions-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile */
+/* ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .quick-actions-grid {
     grid-template-columns: 1fr;
   }
 
-  .quick-action-btn {
+  .quick-actions-card {
     padding: 22px;
+  }
+
+  .quick-action-btn {
+    padding: 20px;
   }
 }

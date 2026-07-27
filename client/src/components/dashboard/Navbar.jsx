@@ -9,24 +9,22 @@ function Navbar() {
 
       <div className="navbar-title">
         <h2>Dashboard</h2>
-        <p>Welcome back 👋</p>
       </div>
 
       {/* Right */}
 
       <div className="navbar-right">
         <div className="search-box">
-          <FiSearch className="search-icon" />
-
+          <FiSearch />
           <input type="text" placeholder="Search applications..." />
         </div>
 
-        <button className="notification-btn">
+        <button className="icon-btn">
           <FiBell />
           <span className="notification-dot"></span>
         </button>
 
-        <div className="profile-box">
+        <div className="profile-card">
           <div className="profile-avatar">R</div>
 
           <div className="profile-info">

@@ -135,3 +135,19 @@
 .bottom-text span:hover {
   text-decoration: underline;
 }
+
+.form-error {
+  text-align: center;
+  color: #a8553a;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 8px 0 12px;
+}
+
+.form-success {
+  text-align: center;
+  color: #a8553a;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 8px 0 12px;
+}

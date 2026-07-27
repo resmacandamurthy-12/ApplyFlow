@@ -1,5 +1,6 @@
 import "./Sidebar.css";
 import logo from "../../assets/logo.svg";
+import { useNavigate } from "react-router-dom";
 
 import {
   FiGrid,
@@ -11,6 +12,15 @@ import {
 } from "react-icons/fi";
 
 function Sidebar() {
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    navigate("/");
+  }
+
   return (
     <aside className="sidebar">
       {/* Logo */}
@@ -55,7 +65,7 @@ function Sidebar() {
       {/* Bottom */}
 
       <div className="sidebar-bottom">
-        <button className="logout-btn">
+        <button onClick={handleLogout} className="logout-btn">
           <FiLogOut />
           <span>Logout</span>
         </button>

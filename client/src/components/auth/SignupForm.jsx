@@ -2,7 +2,6 @@ import "./SignupForm.css";
 import { useState } from "react";
 
 import { FcGoogle } from "react-icons/fc";
-
 import { FiUser, FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 
 function SignupForm({ onSwitch }) {
@@ -14,15 +13,75 @@ function SignupForm({ onSwitch }) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  function handleSubmit(e) {
+  const [loading, setLoading] = useState(false);
+
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
+
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    console.log({
-      fullName,
-      email,
-      password,
-      confirmPassword,
-    });
+    setMessage("");
+
+    if (!fullName || !email || !password || !confirmPassword) {
+      setMessageType("error");
+      setMessage("Please fill in all fields.");
+      return;
+    }
+
+    if (password.length < 8) {
+      setMessageType("error");
+      setMessage("Password should be at least 8 characters.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setMessageType("error");
+      setMessage("Passwords do not match.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName,
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setMessageType("error");
+        setMessage(data.message);
+        return;
+      }
+
+      setMessageType("success");
+      setMessage("Account created successfully.");
+
+      setFullName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+
+      setTimeout(() => {
+        onSwitch();
+      }, 1200);
+    } catch (error) {
+      console.error(error);
+      setMessageType("error");
+      setMessage("Unable to connect to server.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -30,8 +89,6 @@ function SignupForm({ onSwitch }) {
       <h2>Create Account</h2>
 
       <p>Start tracking your internship journey today.</p>
-
-      {/* Full Name */}
 
       <div className="input-box">
         <FiUser className="input-icon" />
@@ -45,8 +102,6 @@ function SignupForm({ onSwitch }) {
         />
       </div>
 
-      {/* Email */}
-
       <div className="input-box">
         <FiMail className="input-icon" />
 
@@ -58,8 +113,6 @@ function SignupForm({ onSwitch }) {
           required
         />
       </div>
-
-      {/* Password */}
 
       <div className="input-box">
         <FiLock className="input-icon" />
@@ -81,8 +134,6 @@ function SignupForm({ onSwitch }) {
         </button>
       </div>
 
-      {/* Confirm Password */}
-
       <div className="input-box">
         <FiLock className="input-icon" />
 
@@ -103,21 +154,29 @@ function SignupForm({ onSwitch }) {
         </button>
       </div>
 
-      <button className="signup-btn" type="submit">
-        Create Account
+      {message && (
+        <div
+          className={messageType === "success" ? "form-success" : "form-error"}
+        >
+          {message}
+        </div>
+      )}
+
+      <button className="signup-btn" type="submit" disabled={loading}>
+        {loading ? "Creating Account..." : "Create Account"}
       </button>
 
       <div className="divider">
         <span>OR</span>
       </div>
 
-      <button className="google-btn" type="button">
+      <button type="button" className="google-btn" disabled>
         <FcGoogle className="google-icon" />
         Continue with Google
       </button>
 
       <div className="bottom-text">
-        Already have an account?
+        Already have an account?{" "}
         <button type="button" className="text-link" onClick={onSwitch}>
           Login
         </button>
