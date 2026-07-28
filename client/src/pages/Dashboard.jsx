@@ -15,7 +15,7 @@ function Dashboard() {
       <Sidebar />
 
       <div className="dashboard-content">
-        <Navbar />
+        <Navbar title="Dashboard" />
 
         <main className="dashboard-body">
           <WelcomeCard />

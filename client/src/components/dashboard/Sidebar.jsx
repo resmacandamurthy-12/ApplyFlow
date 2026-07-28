@@ -1,6 +1,6 @@
 import "./Sidebar.css";
 import logo from "../../assets/logo.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import {
   FiGrid,
@@ -13,12 +13,13 @@ import {
 
 function Sidebar() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   function handleLogout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
-    navigate("/");
+    navigate("/login", { replace: true });
   }
 
   return (
@@ -36,12 +37,24 @@ function Sidebar() {
       {/* Navigation */}
 
       <nav className="sidebar-nav">
-        <button className="nav-item active">
+        <button
+          className={
+            location.pathname === "/dashboard" ? "nav-item active" : "nav-item"
+          }
+          onClick={() => navigate("/dashboard")}
+        >
           <FiGrid />
           <span>Dashboard</span>
         </button>
 
-        <button className="nav-item">
+        <button
+          className={
+            location.pathname === "/applications"
+              ? "nav-item active"
+              : "nav-item"
+          }
+          onClick={() => navigate("/applications")}
+        >
           <FiBriefcase />
           <span>Applications</span>
         </button>

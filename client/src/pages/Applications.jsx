@@ -11,19 +11,9 @@ function Applications() {
       <Sidebar />
 
       <div className="applications-content">
-        <Navbar />
+        <Navbar title="Applications" />
 
         <main className="applications-body">
-          <div className="applications-header">
-            <div>
-              <h1>Applications</h1>
-              <p>
-                Manage, organize and track every internship application in one
-                place.
-              </p>
-            </div>
-          </div>
-
           {/* Search Bar */}
 
           <SearchBar />

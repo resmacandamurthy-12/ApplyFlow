@@ -2,13 +2,13 @@ import "./Navbar.css";
 
 import { FiSearch, FiBell, FiChevronDown } from "react-icons/fi";
 
-function Navbar() {
+function Navbar({ title }) {
   return (
     <header className="dashboard-navbar">
       {/* Left */}
 
       <div className="navbar-title">
-        <h2>Dashboard</h2>
+        <h2>{title}</h2>
       </div>
 
       {/* Right */}
