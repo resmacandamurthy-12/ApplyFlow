@@ -1,10 +1,5 @@
 import "./ApplicationCard.css";
-import {
-  FiMapPin,
-  FiCalendar,
-  FiMoreVertical,
-  FiExternalLink,
-} from "react-icons/fi";
+import { FiMapPin, FiCalendar, FiMoreVertical, FiClock } from "react-icons/fi";
 
 function ApplicationCard({
   company,
@@ -51,13 +46,12 @@ function ApplicationCard({
       <div className="application-bottom">
         <span className={`status-badge ${status.toLowerCase()}`}>{status}</span>
 
-        <button className="view-button">
-          View
-          <FiExternalLink />
-        </button>
+        <button className="view-button">Edit</button>
       </div>
 
-      <div className="deadline">Deadline : {deadline}</div>
+      <div className="deadline">
+        <FiClock /> <span>Deadline</span>: {deadline}
+      </div>
     </div>
   );
 }

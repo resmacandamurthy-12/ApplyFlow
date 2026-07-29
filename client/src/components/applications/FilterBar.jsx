@@ -1,9 +1,6 @@
 import "./FilterBar.css";
-import { useState } from "react";
 
-function FilterBar() {
-  const [active, setActive] = useState("All");
-
+function FilterBar({ selectedFilter, setSelectedFilter }) {
   const filters = [
     "All",
     "Applied",
@@ -18,8 +15,8 @@ function FilterBar() {
       {filters.map((filter) => (
         <button
           key={filter}
-          className={`filter-btn ${active === filter ? "active" : ""}`}
-          onClick={() => setActive(filter)}
+          className={`filter-btn ${selectedFilter === filter ? "active" : ""}`}
+          onClick={() => setSelectedFilter(filter)}
         >
           {filter}
         </button>

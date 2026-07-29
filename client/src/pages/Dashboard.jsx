@@ -1,4 +1,5 @@
 import "./Dashboard.css";
+import { useState } from "react";
 
 import Sidebar from "../components/dashboard/Sidebar";
 import Navbar from "../components/dashboard/Navbar";
@@ -7,9 +8,11 @@ import StatsCard from "../components/dashboard/StatsCard";
 import RecentApplications from "../components/dashboard/RecentApplications";
 import UpcomingDeadlines from "../components/dashboard/UpcomingDeadlines";
 import QuickActions from "../components/dashboard/QuickActions";
+import AddApplicationModal from "../components/applications/AddApplicationModal";
 import { FiBriefcase, FiHeart, FiClock, FiAward } from "react-icons/fi";
 
 function Dashboard() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="dashboard">
       <Sidebar />
@@ -53,7 +56,10 @@ function Dashboard() {
 
             <UpcomingDeadlines />
           </div>
-          <QuickActions />
+          <QuickActions onAddClick={() => setShowModal(true)} />
+          {showModal && (
+            <AddApplicationModal onClose={() => setShowModal(false)} />
+          )}
         </main>
       </div>
     </div>

@@ -9,91 +9,103 @@
   --text-light: #7a7a7a;
 }
 
-/* ========================= */
+/* =========================
+        Search Section
+========================= */
 
 .search-section {
   display: flex;
-
-  justify-content: space-between;
-
   align-items: center;
-
   gap: 20px;
+  width: 100%;
+  margin-bottom: 28px;
 }
 
-/* ========================= */
+/* =========================
+        Search Box
+========================= */
 
 .search-box-app {
   flex: 1;
+  min-width: 0;
 
   height: 60px;
 
-  background: rgba(255, 255, 255, 0.75);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  border: 1px solid rgba(255, 255, 255, 0.6);
-
-  border-radius: 18px;
-
   display: flex;
   align-items: center;
-
   gap: 14px;
 
   padding: 0 22px;
 
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 18px;
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+
+  transition: all 0.25s ease;
+}
+
+.search-box-app:focus-within {
+  border-color: rgba(168, 85, 58, 0.35);
+  box-shadow: 0 12px 30px rgba(168, 85, 58, 0.12);
 }
 
 .search-box-app svg {
   font-size: 22px;
-
-  color: #888;
+  color: #8d8d8d;
+  flex-shrink: 0;
 }
 
 .search-box-app input {
   flex: 1;
+  min-width: 0;
 
   border: none;
-
   outline: none;
 
   background: transparent;
 
   font-size: 16px;
+  color: var(--text);
 }
 
 .search-box-app input::placeholder {
-  color: #888;
+  color: #9a9a9a;
 }
 
-/* ========================= */
+/* =========================
+        Add Button
+========================= */
 
 .add-btn {
   height: 60px;
+  min-width: 235px;
 
-  padding: 0 26px;
+  padding: 0 28px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 
   border: none;
-
   border-radius: 18px;
 
   background: var(--primary);
-
   color: white;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
 
   font-size: 15px;
   font-weight: 600;
 
   cursor: pointer;
 
-  transition: 0.3s;
+  transition: all 0.25s ease;
+
+  white-space: nowrap;
 }
 
 .add-btn svg {
@@ -103,23 +115,78 @@
 .add-btn:hover {
   background: var(--primary-hover);
 
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 
-  box-shadow: 0 14px 28px rgba(168, 85, 58, 0.18);
+  box-shadow: 0 12px 28px rgba(168, 85, 58, 0.18);
 }
 
-/* ========================= */
+/* =========================
+        Tablet
+========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .search-section {
     flex-direction: column;
-
     align-items: stretch;
+    gap: 16px;
+  }
+
+  .search-box-app {
+    width: 100%;
   }
 
   .add-btn {
     width: 100%;
+    min-width: 0;
+  }
+}
 
-    justify-content: center;
+/* =========================
+        Mobile
+========================= */
+
+@media (max-width: 768px) {
+  .search-section {
+    gap: 14px;
+  }
+
+  .search-box-app {
+    height: 56px;
+    padding: 0 18px;
+  }
+
+  .search-box-app input {
+    font-size: 15px;
+  }
+
+  .add-btn {
+    height: 56px;
+    font-size: 15px;
+  }
+}
+
+/* =========================
+      Small Mobile
+========================= */
+
+@media (max-width: 480px) {
+  .search-box-app {
+    height: 52px;
+    border-radius: 16px;
+    padding: 0 16px;
+  }
+
+  .search-box-app svg {
+    font-size: 20px;
+  }
+
+  .search-box-app input {
+    font-size: 14px;
+  }
+
+  .add-btn {
+    height: 52px;
+    border-radius: 16px;
+    font-size: 14px;
   }
 }

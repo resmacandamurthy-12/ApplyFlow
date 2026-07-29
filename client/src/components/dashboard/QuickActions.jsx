@@ -2,7 +2,7 @@ import "./QuickActions.css";
 
 import { FiPlusCircle, FiHeart, FiDownload } from "react-icons/fi";
 
-function QuickActions() {
+function QuickActions({ onAddClick }) {
   return (
     <section className="quick-actions-card">
       <h2>Quick Actions</h2>
@@ -10,7 +10,7 @@ function QuickActions() {
       <p>Access your most used features instantly.</p>
 
       <div className="quick-actions-grid">
-        <button className="quick-action-btn">
+        <button className="quick-action-btn" onClick={onAddClick}>
           <FiPlusCircle />
 
           <span>Add Application</span>

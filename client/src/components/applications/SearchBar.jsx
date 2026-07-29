@@ -2,18 +2,33 @@ import "./SearchBar.css";
 
 import { FiSearch, FiPlus } from "react-icons/fi";
 
-function SearchBar() {
+function SearchBar({ searchTerm, setSearchTerm, onAddClick }) {
   return (
     <section className="search-section">
+      {/* Search Box */}
+
       <div className="search-box-app">
         <FiSearch />
 
-        <input type="text" placeholder="Search company, role or status..." />
+        <input
+          type="text"
+          placeholder="Search company, role or status..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
-      <button className="add-btn">
+      {/* Add Button */}
+
+      <button
+        className="add-btn"
+        onClick={() => {
+          console.log("Add button clicked");
+          onAddClick();
+        }}
+      >
         <FiPlus />
-        Add Application
+        <span>Add Application</span>
       </button>
     </section>
   );
