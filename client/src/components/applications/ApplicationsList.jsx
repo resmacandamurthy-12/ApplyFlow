@@ -2,7 +2,7 @@ import "./ApplicationsList.css";
 
 import ApplicationCard from "./ApplicationCard";
 
-function ApplicationsList({ applications }) {
+function ApplicationsList({ applications, onEdit }) {
   if (applications.length === 0) {
     return (
       <div className="empty-state">
@@ -15,7 +15,17 @@ function ApplicationsList({ applications }) {
   return (
     <section className="applications-grid">
       {applications.map((item) => (
-        <ApplicationCard key={item.id} {...item} />
+        <ApplicationCard
+          key={item.id}
+          application={item}
+          company={item.company}
+          role={item.role}
+          location={item.location}
+          appliedDate={item.appliedDate}
+          deadline={item.deadline}
+          status={item.status}
+          onEdit={onEdit}
+        />
       ))}
     </section>
   );

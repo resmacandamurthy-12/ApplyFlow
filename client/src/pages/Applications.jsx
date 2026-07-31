@@ -13,7 +13,11 @@ function Applications() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [showModal, setShowModal] = useState(false);
-  const applications = [
+
+  const [editingApplication, setEditingApplication] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+
+  const [applications, setApplications] = useState([
     {
       id: 1,
       company: "Google",
@@ -50,7 +54,13 @@ function Applications() {
       deadline: "31 Jul",
       status: "Rejected",
     },
-  ];
+  ]);
+
+  function handleEdit(application) {
+    setEditingApplication(application);
+    setIsEditing(true);
+    setShowModal(true);
+  }
 
   const filteredApplications = applications.filter((app) => {
     const matchesSearch =
@@ -71,28 +81,59 @@ function Applications() {
         <Navbar title="Applications" />
 
         <main className="applications-body">
-          {/* Page Header */}
-
-          {/* Search */}
-
           <SearchBar
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
-            onAddClick={() => setShowModal(true)}
+            onAddClick={() => {
+              setEditingApplication(null);
+              setIsEditing(false);
+              setShowModal(true);
+            }}
           />
-
-          {/* Filters */}
 
           <FilterBar
             selectedFilter={selectedFilter}
             setSelectedFilter={setSelectedFilter}
           />
 
-          {/* Applications */}
+          <ApplicationsList
+            applications={filteredApplications}
+            onEdit={handleEdit}
+          />
 
-          <ApplicationsList applications={filteredApplications} />
           {showModal && (
-            <AddApplicationModal onClose={() => setShowModal(false)} />
+            <AddApplicationModal
+              onClose={() => {
+                setShowModal(false);
+                setEditingApplication(null);
+                setIsEditing(false);
+              }}
+              isEditing={isEditing}
+              editingApplication={editingApplication}
+              onSave={(applicationData) => {
+                if (isEditing) {
+                  setApplications((prev) =>
+                    prev.map((app) =>
+                      app.id === editingApplication.id
+                        ? { ...app, ...applicationData }
+                        : app,
+                    ),
+                  );
+                } else {
+                  setApplications((prev) => [
+                    {
+                      id: Date.now(),
+                      ...applicationData,
+                    },
+                    ...prev,
+                  ]);
+                }
+
+                setShowModal(false);
+                setEditingApplication(null);
+                setIsEditing(false);
+              }}
+            />
           )}
         </main>
       </div>

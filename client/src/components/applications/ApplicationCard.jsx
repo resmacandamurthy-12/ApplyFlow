@@ -2,12 +2,14 @@ import "./ApplicationCard.css";
 import { FiMapPin, FiCalendar, FiMoreVertical, FiClock } from "react-icons/fi";
 
 function ApplicationCard({
+  application,
   company,
   role,
   location,
   appliedDate,
   deadline,
   status,
+  onEdit,
 }) {
   return (
     <div className="application-card">
@@ -46,11 +48,16 @@ function ApplicationCard({
       <div className="application-bottom">
         <span className={`status-badge ${status.toLowerCase()}`}>{status}</span>
 
-        <button className="view-button">Edit</button>
+        <button className="view-button" onClick={() => onEdit(application)}>
+          Edit
+        </button>
       </div>
 
+      {/* Deadline */}
+
       <div className="deadline">
-        <FiClock /> <span>Deadline</span>: {deadline}
+        <FiClock />
+        <span>Deadline:</span> {deadline}
       </div>
     </div>
   );
