@@ -1,21 +1,26 @@
 import "./Applications.css";
 import { useState } from "react";
 
-import AddApplicationModal from "../components/applications/AddApplicationModal";
-
 import Sidebar from "../components/dashboard/Sidebar";
 import Navbar from "../components/dashboard/Navbar";
+
 import SearchBar from "../components/applications/SearchBar";
 import FilterBar from "../components/applications/FilterBar";
 import ApplicationsList from "../components/applications/ApplicationsList";
+import AddApplicationModal from "../components/applications/AddApplicationModal";
+import DeleteConfirmationModal from "../components/applications/DeleteConfirmationModal";
 
 function Applications() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("All");
+
   const [showModal, setShowModal] = useState(false);
 
   const [editingApplication, setEditingApplication] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [applicationToDelete, setApplicationToDelete] = useState(null);
 
   const [applications, setApplications] = useState([
     {
@@ -62,6 +67,20 @@ function Applications() {
     setShowModal(true);
   }
 
+  function handleDelete(application) {
+    setApplicationToDelete(application);
+    setShowDeleteModal(true);
+  }
+
+  function confirmDelete() {
+    setApplications((prev) =>
+      prev.filter((app) => app.id !== applicationToDelete.id),
+    );
+
+    setShowDeleteModal(false);
+    setApplicationToDelete(null);
+  }
+
   const filteredApplications = applications.filter((app) => {
     const matchesSearch =
       app.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -99,6 +118,7 @@ function Applications() {
           <ApplicationsList
             applications={filteredApplications}
             onEdit={handleEdit}
+            onDelete={handleDelete}
           />
 
           {showModal && (
@@ -133,6 +153,17 @@ function Applications() {
                 setEditingApplication(null);
                 setIsEditing(false);
               }}
+            />
+          )}
+
+          {showDeleteModal && (
+            <DeleteConfirmationModal
+              application={applicationToDelete}
+              onCancel={() => {
+                setShowDeleteModal(false);
+                setApplicationToDelete(null);
+              }}
+              onConfirm={confirmDelete}
             />
           )}
         </main>

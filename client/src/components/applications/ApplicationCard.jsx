@@ -10,6 +10,7 @@ function ApplicationCard({
   deadline,
   status,
   onEdit,
+  onDelete,
 }) {
   return (
     <div className="application-card">
@@ -48,9 +49,18 @@ function ApplicationCard({
       <div className="application-bottom">
         <span className={`status-badge ${status.toLowerCase()}`}>{status}</span>
 
-        <button className="view-button" onClick={() => onEdit(application)}>
-          Edit
-        </button>
+        <div className="action-buttons">
+          <button className="view-button" onClick={() => onEdit(application)}>
+            Edit
+          </button>
+
+          <button
+            className="delete-button"
+            onClick={() => onDelete(application)}
+          >
+            Delete
+          </button>
+        </div>
       </div>
 
       {/* Deadline */}

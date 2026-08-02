@@ -2,7 +2,7 @@ import "./ApplicationsList.css";
 
 import ApplicationCard from "./ApplicationCard";
 
-function ApplicationsList({ applications, onEdit }) {
+function ApplicationsList({ applications, onEdit, onDelete }) {
   if (applications.length === 0) {
     return (
       <div className="empty-state">
@@ -18,13 +18,9 @@ function ApplicationsList({ applications, onEdit }) {
         <ApplicationCard
           key={item.id}
           application={item}
-          company={item.company}
-          role={item.role}
-          location={item.location}
-          appliedDate={item.appliedDate}
-          deadline={item.deadline}
-          status={item.status}
+          {...item}
           onEdit={onEdit}
+          onDelete={onDelete}
         />
       ))}
     </section>
