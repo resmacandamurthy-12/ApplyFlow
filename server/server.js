@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 
 import pool from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
+import applicationRoutes from "./routes/applications.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 
 // Authentication Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/applications", applicationRoutes);
 
 const PORT = process.env.PORT || 5000;
 

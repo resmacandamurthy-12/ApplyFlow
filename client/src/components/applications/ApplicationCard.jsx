@@ -7,19 +7,32 @@ function ApplicationCard({
   role,
   location,
   appliedDate,
+  applied_date,
   deadline,
   status,
   onEdit,
   onDelete,
 }) {
+  const displayAppliedDate = applied_date
+    ? applied_date.slice(0, 10)
+    : appliedDate || "";
+
+  const displayDeadline = deadline
+    ? deadline.slice
+      ? deadline.slice(0, 10)
+      : deadline
+    : "";
+
   return (
     <div className="application-card">
       {/* Top */}
 
       <div className="application-top">
-        <div className="company-logo">{company.charAt(0)}</div>
+        <div className="company-logo">
+          {company ? company.charAt(0).toUpperCase() : "?"}
+        </div>
 
-        <button className="menu-button">
+        <button className="menu-button" type="button">
           <FiMoreVertical />
         </button>
       </div>
@@ -39,7 +52,7 @@ function ApplicationCard({
 
           <span>
             <FiCalendar />
-            Applied {appliedDate}
+            Applied {displayAppliedDate}
           </span>
         </div>
       </div>
@@ -50,11 +63,16 @@ function ApplicationCard({
         <span className={`status-badge ${status.toLowerCase()}`}>{status}</span>
 
         <div className="action-buttons">
-          <button className="view-button" onClick={() => onEdit(application)}>
+          <button
+            type="button"
+            className="view-button"
+            onClick={() => onEdit(application)}
+          >
             Edit
           </button>
 
           <button
+            type="button"
             className="delete-button"
             onClick={() => onDelete(application)}
           >
@@ -67,7 +85,7 @@ function ApplicationCard({
 
       <div className="deadline">
         <FiClock />
-        <span>Deadline:</span> {deadline}
+        <span>Deadline:</span> {displayDeadline}
       </div>
     </div>
   );

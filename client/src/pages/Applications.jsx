@@ -1,5 +1,12 @@
 import "./Applications.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import {
+  getApplications,
+  createApplication,
+  updateApplication,
+  deleteApplication,
+} from "../services/applicationService";
 
 import Sidebar from "../components/dashboard/Sidebar";
 import Navbar from "../components/dashboard/Navbar";
@@ -14,52 +21,27 @@ function Applications() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("All");
 
-  const [showModal, setShowModal] = useState(false);
+  const [applications, setApplications] = useState([]);
 
+  const [showModal, setShowModal] = useState(false);
   const [editingApplication, setEditingApplication] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [applicationToDelete, setApplicationToDelete] = useState(null);
 
-  const [applications, setApplications] = useState([
-    {
-      id: 1,
-      company: "Google",
-      role: "Frontend Intern",
-      location: "Bangalore",
-      appliedDate: "21 Jul",
-      deadline: "30 Jul",
-      status: "Applied",
-    },
-    {
-      id: 2,
-      company: "Microsoft",
-      role: "SDE Intern",
-      location: "Hyderabad",
-      appliedDate: "18 Jul",
-      deadline: "2 Aug",
-      status: "Interview",
-    },
-    {
-      id: 3,
-      company: "Amazon",
-      role: "Software Intern",
-      location: "Chennai",
-      appliedDate: "15 Jul",
-      deadline: "29 Jul",
-      status: "Wishlist",
-    },
-    {
-      id: 4,
-      company: "Adobe",
-      role: "UI Engineer",
-      location: "Noida",
-      appliedDate: "13 Jul",
-      deadline: "31 Jul",
-      status: "Rejected",
-    },
-  ]);
+  useEffect(() => {
+    fetchApplications();
+  }, []);
+
+  async function fetchApplications() {
+    try {
+      const response = await getApplications();
+      setApplications(response.data);
+    } catch (error) {
+      console.error("Error fetching applications:", error);
+    }
+  }
 
   function handleEdit(application) {
     setEditingApplication(application);
@@ -72,13 +54,39 @@ function Applications() {
     setShowDeleteModal(true);
   }
 
-  function confirmDelete() {
-    setApplications((prev) =>
-      prev.filter((app) => app.id !== applicationToDelete.id),
-    );
+  async function confirmDelete() {
+    try {
+      await deleteApplication(applicationToDelete.id);
 
-    setShowDeleteModal(false);
-    setApplicationToDelete(null);
+      setApplications((prev) =>
+        prev.filter((app) => app.id !== applicationToDelete.id),
+      );
+
+      setShowDeleteModal(false);
+      setApplicationToDelete(null);
+    } catch (error) {
+      console.error("Error deleting application:", error);
+      alert("Failed to delete application");
+    }
+  }
+
+  async function handleSave(applicationData) {
+    try {
+      if (isEditing) {
+        await updateApplication(editingApplication.id, applicationData);
+      } else {
+        await createApplication(applicationData);
+      }
+
+      await fetchApplications();
+
+      setShowModal(false);
+      setEditingApplication(null);
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error saving application:", error);
+      alert("Failed to save application");
+    }
   }
 
   const filteredApplications = applications.filter((app) => {
@@ -128,31 +136,9 @@ function Applications() {
                 setEditingApplication(null);
                 setIsEditing(false);
               }}
+              onSave={handleSave}
               isEditing={isEditing}
               editingApplication={editingApplication}
-              onSave={(applicationData) => {
-                if (isEditing) {
-                  setApplications((prev) =>
-                    prev.map((app) =>
-                      app.id === editingApplication.id
-                        ? { ...app, ...applicationData }
-                        : app,
-                    ),
-                  );
-                } else {
-                  setApplications((prev) => [
-                    {
-                      id: Date.now(),
-                      ...applicationData,
-                    },
-                    ...prev,
-                  ]);
-                }
-
-                setShowModal(false);
-                setEditingApplication(null);
-                setIsEditing(false);
-              }}
             />
           )}
 

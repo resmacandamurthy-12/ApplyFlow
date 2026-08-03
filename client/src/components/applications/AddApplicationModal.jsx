@@ -19,14 +19,30 @@ function AddApplicationModal({
 
   useEffect(() => {
     if (isEditing && editingApplication) {
-      setCompany(editingApplication.company ?? "");
-      setRole(editingApplication.role ?? "");
-      setLocation(editingApplication.location ?? "");
-      setApplicationLink(editingApplication.applicationLink ?? "");
-      setAppliedDate(editingApplication.appliedDate ?? "");
-      setDeadline(editingApplication.deadline ?? "");
-      setStatus(editingApplication.status ?? "Applied");
-      setNotes(editingApplication.notes ?? "");
+      setCompany(editingApplication.company || "");
+      setRole(editingApplication.role || "");
+      setLocation(editingApplication.location || "");
+
+      setApplicationLink(
+        editingApplication.application_link ||
+          editingApplication.applicationLink ||
+          "",
+      );
+
+      setAppliedDate(
+        editingApplication.applied_date
+          ? editingApplication.applied_date.slice(0, 10)
+          : editingApplication.appliedDate || "",
+      );
+
+      setDeadline(
+        editingApplication.deadline
+          ? editingApplication.deadline.slice(0, 10)
+          : "",
+      );
+
+      setStatus(editingApplication.status || "Applied");
+      setNotes(editingApplication.notes || "");
     } else {
       setCompany("");
       setRole("");
@@ -47,7 +63,7 @@ function AddApplicationModal({
       return;
     }
 
-    onSave({
+    const applicationData = {
       company,
       role,
       location,
@@ -56,12 +72,16 @@ function AddApplicationModal({
       deadline,
       status,
       notes,
-    });
+    };
+
+    onSave(applicationData);
   }
 
   return (
     <div className="modal-overlay">
       <div className="modal-container">
+        {/* Header */}
+
         <div className="modal-header">
           <h2>{isEditing ? "Edit Application" : "Add New Application"}</h2>
 
@@ -70,9 +90,12 @@ function AddApplicationModal({
           </button>
         </div>
 
+        {/* Form */}
+
         <form className="application-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Company Name</label>
+
             <input
               type="text"
               placeholder="Google"
@@ -83,6 +106,7 @@ function AddApplicationModal({
 
           <div className="form-group">
             <label>Role</label>
+
             <input
               type="text"
               placeholder="Frontend Intern"
@@ -93,6 +117,7 @@ function AddApplicationModal({
 
           <div className="form-group">
             <label>Location</label>
+
             <input
               type="text"
               placeholder="Bangalore"
@@ -103,6 +128,7 @@ function AddApplicationModal({
 
           <div className="form-group">
             <label>Application Link</label>
+
             <input
               type="url"
               placeholder="https://careers.company.com"
@@ -114,6 +140,7 @@ function AddApplicationModal({
           <div className="form-row">
             <div className="form-group">
               <label>Applied Date</label>
+
               <input
                 type="date"
                 value={appliedDate}
@@ -123,6 +150,7 @@ function AddApplicationModal({
 
             <div className="form-group">
               <label>Deadline</label>
+
               <input
                 type="date"
                 value={deadline}
